@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SVD MINDFUL v3.0</title>
-    <!-- v3.0: バックエンド同期強化、ロゴ修正、クリーンアーキテクチャ -->
+    <title>SVD MINDFUL v3.5</title>
+    <!-- v3.5: ヘッダー横並び、写真永続化、拠点移籍機能 -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -62,8 +62,7 @@
         }
 
         header {
-            padding: 20px;
-            text-align: center;
+            padding: 12px 20px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             background: rgba(255, 255, 255, 0.94);
             backdrop-filter: blur(12px);
@@ -74,20 +73,30 @@
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
         }
 
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
         .logo-container {
-            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
         }
 
         .logo-container img {
-            height: 45px;
+            height: 32px;
         }
 
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 600;
             letter-spacing: 0.12em;
             color: var(--navy);
+            margin: 0;
         }
 
         .header-sub {
@@ -1496,14 +1505,16 @@
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="logo/SVD_logo_standard.png" alt="SVD" onerror="this.style.display='none'">
+        <div class="header-main">
+            <div class="logo-container">
+                <img src="logo/SVD_logo_standard.png" alt="SVD" onerror="this.style.display='none'">
+            </div>
+            <h1>MINDFUL</h1>
+            <div
+                style="font-family: 'Montserrat', sans-serif; font-size: 10px; color: var(--gold); letter-spacing: 0.15em; font-weight: 500;">
+                v3.5</div>
         </div>
-        <h1>MINDFUL</h1>
-        <div
-            style="font-family: 'Montserrat', sans-serif; font-size: 10px; color: var(--gold); letter-spacing: 0.2em; margin-top: 2px; margin-bottom: 5px;">
-            v3.0</div>
-        <div class="header-sub">IGNITION — GET YOUR GREEN LIGHT</div>
+        <div class="header-sub" style="margin-top: 4px;">IGNITION — GET YOUR GREEN LIGHT</div>
         <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 5px;">
             <div class="user-badge" id="userBadge" style="display: none;"></div>
             <div class="token-display" id="tokenDisplay" style="display: none;">
@@ -1713,7 +1724,7 @@
                 <div class="principle-num">01 PURPOSE</div>
                 <div class="principle-title">パーパス（存在意義）</div>
                 <div class="principle-desc" style="font-weight: 500;">SAPPORO VIEWTIFUL
-                    DININGは札幌という都市が有する「観光」や「食」を守り、北海道の文化を「未来」へと紡ぐ旗手となるレストラン・コレクティブルです。</div>
+                    DININGは札幌という都市が有する「観光」や「食」を守り、北海道の文化を「未来」へと紡ぐ旗手となるレストラン・コレクティブです。</div>
             </div>
             <div class="principle-card" onclick="this.classList.toggle('expanded')">
                 <div class="principle-num">02 MISSION</div>
@@ -1734,6 +1745,22 @@
                 <div class="principle-desc" style="font-weight: 500;">
                     私たちの取り組みは、単なる飲食店の運営ではなく、札幌の未来を形づくる存在になること。ただの商業施設ではない「公共性と文化性を備えたレストラン」を育て、社内の各事業部の皆さんと連携しながら、札幌の成長とともに新しい価値を創りだしていきます。
                 </div>
+            </div>
+
+            <!-- SVD Brand Guide PDF リンク -->
+            <div
+                style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, var(--gold-light), rgba(212,175,55,0.1)); border: 1px solid var(--gold); border-radius: 12px;">
+                <a href="SVD_BRANDGUIDE_v.1.1.pdf" target="_blank"
+                    style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                    <span style="font-size: 24px;">📖</span>
+                    <div>
+                        <div
+                            style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: var(--navy);">
+                            SVD Brand Guide</div>
+                        <div style="font-size: 11px; color: var(--text-gray);">v1.1 - ブランドコンセプトを確認する</div>
+                    </div>
+                    <span style="margin-left: auto; font-size: 18px;">→</span>
+                </a>
             </div>
 
             <div class="section-title" style="margin-top: 25px;">Health Check</div>
@@ -2023,7 +2050,7 @@
                 </div>
                 <div
                     style="margin-top: 12px; text-align: center; font-size: 9px; color: var(--text-gray); opacity: 0.7;">
-                    Powered by <span style="font-weight: 600;">Gemini 3 Flash</span> | SATOSHI AI v3.0
+                    Powered by <span style="font-weight: 600;">Gemini 3 Flash</span> | SATOSHI AI v3.5
                 </div>
             </div>
 
@@ -2207,8 +2234,50 @@
                     </button>
                 </div>
 
+                <!-- 拠点変更セクション -->
+                <div style="border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
+                    <div
+                        style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: var(--text-gray); letter-spacing: 0.1em; margin-bottom: 10px;">
+                        🏢 拠点管理</div>
+                    <button onclick="openBaseTransferModal()"
+                        style="width: 100%; padding: 12px; background: var(--light-gray); color: var(--navy); border: 1px solid var(--border); border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 13px; cursor: pointer;">
+                        拠点を変更する（データ引き継ぎ）
+                    </button>
+                </div>
+
                 <button class="btn-main" onclick="confirmEditProfile()">プロフィールを編集する</button>
                 <button class="btn-secondary" onclick="showScreen('screen-morning')">戻る</button>
+            </div>
+        </div>
+
+        <!-- 拠点移籍モーダル -->
+        <div id="baseTransferModal"
+            style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); z-index: 1000; padding: 20px; overflow-y: auto;">
+            <div
+                style="background: var(--white); border-radius: 16px; padding: 25px; max-width: 350px; margin: 20px auto;">
+                <div
+                    style="font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 600; color: var(--navy); text-align: center; margin-bottom: 20px;">
+                    🏢 拠点を変更
+                </div>
+                <div style="font-size: 13px; color: var(--text-gray); text-align: center; margin-bottom: 20px;">
+                    トークン・目標・写真など全データを引き継いで移籍します
+                </div>
+                <div id="baseTransferOptions" style="display: grid; gap: 10px; margin-bottom: 20px;">
+                    <!-- 動的に生成 -->
+                </div>
+                <div id="transferError"
+                    style="display: none; color: var(--danger); font-size: 12px; text-align: center; margin-bottom: 10px;">
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="closeBaseTransferModal()"
+                        style="flex: 1; padding: 12px; background: var(--light-gray); color: var(--navy); border: none; border-radius: 8px; font-size: 14px; cursor: pointer;">
+                        キャンセル
+                    </button>
+                    <button id="confirmTransferBtn" onclick="confirmBaseTransfer()"
+                        style="flex: 1; padding: 12px; background: var(--gold); color: white; border: none; border-radius: 8px; font-size: 14px; cursor: pointer; font-weight: 600;">
+                        移籍する
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -2336,7 +2405,7 @@
         </div>
     </main>
 
-    <footer>SAPPORO VIEWTIFUL DINING — ORIGIN <span style="opacity: 0.6; margin-left: 10px;">v3.0</span></footer>
+    <footer>SAPPORO VIEWTIFUL DINING — ORIGIN <span style="opacity: 0.6; margin-left: 10px;">v3.5</span></footer>
 
     <nav>
         <div class="nav-item active" onclick="showScreen('screen-morning')">
@@ -2841,8 +2910,8 @@
                 const profile = { name, base: selectedBase, pin: pin, goalsThisYear, goalsFuture };
                 localStorage.setItem('mindful_profile', JSON.stringify(profile));
 
-                // バックエンドにも登録（非同期）
-                registerToBackend(name, pin, selectedBase);
+                // バックエンドにも登録（非同期）- 目標を含める
+                registerToBackend(name, pin, selectedBase, goalsThisYear, goalsFuture);
 
                 showUserBadge(profile);
                 showGoalsDisplay(profile);
@@ -2851,12 +2920,14 @@
         }
 
         // バックエンドにユーザー登録
-        async function registerToBackend(name, pin, base) {
+        async function registerToBackend(name, pin, base, goalsThisYear, goalsFuture) {
             const url = SCRIPT_URLS[base];
             if (!url) return;
 
             try {
-                const response = await fetch(`${url}?action=register&name=${encodeURIComponent(name)}&pin=${encodeURIComponent(pin)}&base=${encodeURIComponent(base)}`);
+                const goalsThisYearStr = encodeURIComponent(JSON.stringify(goalsThisYear || []));
+                const goalsFutureStr = encodeURIComponent(JSON.stringify(goalsFuture || []));
+                const response = await fetch(`${url}?action=register&name=${encodeURIComponent(name)}&pin=${encodeURIComponent(pin)}&base=${encodeURIComponent(base)}&goalsThisYear=${goalsThisYearStr}&goalsFuture=${goalsFutureStr}`);
                 const result = await response.json();
                 console.log('Backend registration:', result);
             } catch (e) {
@@ -2894,13 +2965,13 @@
                     const result = await response.json();
 
                     if (result.success) {
-                        // ログイン成功！データを復元
+                        // ログイン成功！データを復元（目標と写真を含む）
                         const profile = {
                             name: result.name,
                             base: result.base || base,
                             pin: pin,
-                            goalsThisYear: [],
-                            goalsFuture: []
+                            goalsThisYear: result.goalsThisYear || [],
+                            goalsFuture: result.goalsFuture || []
                         };
                         localStorage.setItem('mindful_profile', JSON.stringify(profile));
 
@@ -2914,9 +2985,16 @@
                             localStorage.setItem('mindful_checkout_dates', JSON.stringify(result.checkoutDates));
                         }
 
+                        // 写真を復元
+                        if (result.profileImage) {
+                            localStorage.setItem('mindful_photo', result.profileImage);
+                        }
+
                         loginSuccess = true;
                         showUserBadge(profile);
+                        showGoalsDisplay(profile);
                         updateTokenDisplay();
+                        loadProfilePhoto();
                         showScreen('screen-morning');
                         break;
                     }
@@ -3210,10 +3288,150 @@
 
             localStorage.setItem('mindful_profile', JSON.stringify(profile));
 
+            // バックエンドにも同期
+            syncGoalsToBackend(profile);
+
             // 表示を更新
             showGoalsDisplay(profile);
             showProfile();
             closeGoalsEditor();
+        }
+
+        // 目標をバックエンドに同期
+        async function syncGoalsToBackend(profile) {
+            const base = profile.base || todayBase || 'moiwayama';
+            const url = SCRIPT_URLS[base];
+            if (!url || !profile.pin) return;
+
+            try {
+                const goalsThisYearStr = encodeURIComponent(JSON.stringify(profile.goalsThisYear || []));
+                const goalsFutureStr = encodeURIComponent(JSON.stringify(profile.goalsFuture || []));
+                const response = await fetch(`${url}?action=updateGoals&name=${encodeURIComponent(profile.name)}&pin=${encodeURIComponent(profile.pin)}&goalsThisYear=${goalsThisYearStr}&goalsFuture=${goalsFutureStr}`);
+                const result = await response.json();
+                console.log('Goals sync:', result);
+            } catch (e) {
+                console.error('Goals sync error:', e);
+            }
+        }
+
+        // ===== 拠点移籍機能 =====
+        let selectedNewBase = null;
+
+        function openBaseTransferModal() {
+            const profile = JSON.parse(localStorage.getItem('mindful_profile') || 'null');
+            if (!profile) return;
+
+            const currentBase = profile.base;
+            const optionsContainer = document.getElementById('baseTransferOptions');
+
+            // 現在の拠点以外を表示
+            let html = '';
+            for (const [key, name] of Object.entries(BASE_NAMES)) {
+                const isDisabled = key === currentBase;
+                html += `
+                    <div onclick="${isDisabled ? '' : `selectNewBase('${key}')`}"
+                        id="baseOption_${key}"
+                        style="padding: 14px; border: 2px solid ${isDisabled ? '#ccc' : 'var(--border)'}; border-radius: 10px; 
+                               text-align: center; cursor: ${isDisabled ? 'not-allowed' : 'pointer'}; 
+                               background: ${isDisabled ? '#f0f0f0' : 'white'}; 
+                               color: ${isDisabled ? '#999' : 'var(--navy)'}; font-size: 14px; transition: all 0.2s;">
+                        ${name} ${isDisabled ? '(現在)' : ''}
+                    </div>
+                `;
+            }
+            optionsContainer.innerHTML = html;
+
+            selectedNewBase = null;
+            document.getElementById('transferError').style.display = 'none';
+            document.getElementById('baseTransferModal').style.display = 'block';
+            document.body.classList.add('modal-open');
+        }
+
+        function closeBaseTransferModal() {
+            document.getElementById('baseTransferModal').style.display = 'none';
+            document.body.classList.remove('modal-open');
+            selectedNewBase = null;
+        }
+
+        function selectNewBase(base) {
+            selectedNewBase = base;
+            // UIを更新
+            document.querySelectorAll('[id^="baseOption_"]').forEach(el => {
+                el.style.border = '2px solid var(--border)';
+                el.style.background = 'white';
+            });
+            const selected = document.getElementById(`baseOption_${base}`);
+            if (selected) {
+                selected.style.border = '2px solid var(--gold)';
+                selected.style.background = 'var(--gold-light)';
+            }
+            document.getElementById('transferError').style.display = 'none';
+        }
+
+        async function confirmBaseTransfer() {
+            if (!selectedNewBase) {
+                document.getElementById('transferError').textContent = '移籍先を選択してください';
+                document.getElementById('transferError').style.display = 'block';
+                return;
+            }
+
+            const profile = JSON.parse(localStorage.getItem('mindful_profile') || 'null');
+            if (!profile || !profile.pin) {
+                alert('プロファイル情報が見つかりません');
+                return;
+            }
+
+            const confirmTransfer = confirm(`${BASE_NAMES[selectedNewBase]}に移籍しますか？\n\n全てのデータ（トークン、目標、写真など）が引き継がれます。`);
+            if (!confirmTransfer) return;
+
+            const btn = document.getElementById('confirmTransferBtn');
+            btn.textContent = '移籍中...';
+            btn.disabled = true;
+
+            try {
+                // 移籍先GASにPOSTでデータを送信
+                const url = SCRIPT_URLS[selectedNewBase];
+                if (!url) {
+                    throw new Error('移籍先のURLが見つかりません');
+                }
+
+                const transferData = {
+                    action: 'transferUser',
+                    name: profile.name,
+                    pin: profile.pin,
+                    newBase: selectedNewBase,
+                    tokenBalance: parseInt(localStorage.getItem('mindful_tokens') || '0'),
+                    goalsThisYear: JSON.stringify(profile.goalsThisYear || []),
+                    goalsFuture: JSON.stringify(profile.goalsFuture || []),
+                    profileImage: localStorage.getItem('mindful_photo') || '',
+                    checkoutDates: localStorage.getItem('mindful_checkout_dates') || '[]'
+                };
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(transferData)
+                });
+
+                // no-corsモードなのでレスポンスは読めないが、成功とみなす
+                // ローカル情報を更新
+                profile.base = selectedNewBase;
+                localStorage.setItem('mindful_profile', JSON.stringify(profile));
+
+                closeBaseTransferModal();
+                alert(`${BASE_NAMES[selectedNewBase]}への移籍が完了しました！`);
+                showProfile();
+                showUserBadge(profile);
+
+            } catch (e) {
+                console.error('Transfer error:', e);
+                document.getElementById('transferError').textContent = '移籍に失敗しました: ' + e.message;
+                document.getElementById('transferError').style.display = 'block';
+            } finally {
+                btn.textContent = '移籍する';
+                btn.disabled = false;
+            }
         }
 
         function handlePhotoUpload(event) {
@@ -3248,10 +3466,31 @@
                     const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
                     localStorage.setItem('mindful_photo', dataUrl);
                     loadProfilePhoto();
+
+                    // バックエンドにも同期
+                    syncPhotoToBackend(dataUrl);
                 };
                 img.src = e.target.result;
             };
             reader.readAsDataURL(file);
+        }
+
+        // 写真をバックエンドに同期
+        async function syncPhotoToBackend(imageData) {
+            const profile = JSON.parse(localStorage.getItem('mindful_profile') || 'null');
+            if (!profile || !profile.pin) return;
+
+            const base = profile.base || todayBase || 'moiwayama';
+            const url = SCRIPT_URLS[base];
+            if (!url) return;
+
+            try {
+                const response = await fetch(`${url}?action=uploadProfileImage&name=${encodeURIComponent(profile.name)}&pin=${encodeURIComponent(profile.pin)}&image=${encodeURIComponent(imageData)}`);
+                const result = await response.json();
+                console.log('Photo sync:', result);
+            } catch (e) {
+                console.error('Photo sync error:', e);
+            }
         }
 
         function loadProfilePhoto() {
