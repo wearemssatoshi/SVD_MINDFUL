@@ -101,4 +101,3 @@ self.addEventListener('message', (event) => {
         self.skipWaiting();
     }
 });
-// Updated: Fri Jan 30 20:48:18 JST 2026
